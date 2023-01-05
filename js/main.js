@@ -24,7 +24,7 @@ const D8_8 = '  ___\n /   \\\n/  8  \\\n\\_____/\n';
 let diceSides = +prompt('Введите число граней игрального кубика 4, 6 или 8:');
 let dices = +prompt('Введите число игральных кубиков для броска:');
 
-if ( isFinite(dices) && !isNaN(dices) && dices > 0)) {
+if ( isFinite(dices) && !isNaN(dices) && dices > 0 ) {
     switch(diceSides) {
         case 4 : logDice(); break;
         case 6 : logDice(); break;
