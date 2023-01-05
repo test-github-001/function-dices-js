@@ -24,15 +24,6 @@ const D8_8 = '  ___\n /   \\\n/  8  \\\n\\_____/\n';
 let diceSides = +prompt('Введите число граней игрального кубика 4, 6 или 8:');
 let dices = +prompt('Введите число игральных кубиков для броска:');
 
-if ( isFinite(dices) && !isNaN(dices) && dices > 0 ) {
-    switch(diceSides) {
-        case 4 : logDice(); break;
-        case 6 : logDice(); break;
-        case 8 : logDice(); break;
-        default : alert('Введено неверное значение (граней может быть 4, 6 или 8)');
-    }
-} else alert('Введено неверное значение (количество кубиков должно быть конечным числом больше 0)');
-
 let throwDice = size => Math.ceil( Math.random() * size );
 
 let logDice = () => {
@@ -71,3 +62,12 @@ let logDice = () => {
     dices = dices - 1;
     if (dices > 0) logDice();
 }
+
+if ( isFinite(dices) && !isNaN(dices) && dices > 0 ) {
+    switch(diceSides) {
+        case 4 : logDice(); break;
+        case 6 : logDice(); break;
+        case 8 : logDice(); break;
+        default : alert('Введено неверное значение (граней может быть 4, 6 или 8)');
+    }
+} else alert('Введено неверное значение (количество кубиков должно быть конечным числом больше 0)');
