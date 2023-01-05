@@ -1,19 +1,71 @@
 'use strict';
 
-let throwDice = () => Math.ceil( Math.random() * 6 );
+const D4_1 = '    ^\n  / 1 \\\n /_____\\\n';
+const D4_2 = '    ^\n  / 2 \\\n /_____\\\n';
+const D4_3 = '    ^\n  / 3 \\\n /_____\\\n';
+const D4_6 = '    ^\n  / 4 \\\n /_____\\\n';
 
-let throws = +prompt('Сколько кубиков кидаем (1 - 10) ?').trim();
+const D6_1 = '---------\n|       |\n|   *   |\n|       |\n---------\n';
+const D6_2 = '---------\n| *     |\n|       |\n|     * |\n---------\n';
+const D6_3 = '---------\n| *     |\n|   *   |\n|     * |\n---------\n';
+const D6_4 = '---------\n| *   * |\n|       |\n| *   * |\n---------\n';
+const D6_5 = '---------\n| *   * |\n|   *   |\n| *   * |\n---------\n';
+const D6_6 = '---------\n| *   * |\n| *   * |\n| *   * |\n---------\n';
 
-switch(throws) {
-    case 1 : alert( throwDice() ); break;
-    case 2 : alert( `${throwDice()} + ${throwDice()}` ); break;
-    case 3 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 4 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 5 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 6 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 7 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 8 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 9 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    case 10 : alert( `${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()} + ${throwDice()}` ); break;
-    default : alert( 'Число должно быть от 1 до 10' );
+const D8_1 = '  ___\n /   \\\n/  1  \\\n\\_____/\n';
+const D8_2 = '  ___\n /   \\\n/  2  \\\n\\_____/\n';
+const D8_3 = '  ___\n /   \\\n/  3  \\\n\\_____/\n';
+const D8_4 = '  ___\n /   \\\n/  4  \\\n\\_____/\n';
+const D8_5 = '  ___\n /   \\\n/  5  \\\n\\_____/\n';
+const D8_6 = '  ___\n /   \\\n/  6  \\\n\\_____/\n';
+const D8_7 = '  ___\n /   \\\n/  7  \\\n\\_____/\n';
+const D8_8 = '  ___\n /   \\\n/  8  \\\n\\_____/\n';
+
+/*
+Запросите у пользователя число граней игрального кубика 4, 5 или 6 в модальном окне используя функцию prompt(),
+и сохраните значение в переменной diceSides; если пользователь ввел число отличное от 4, 5 или 6 выведите сообщении об ошибке с помощью alert().
+*/
+
+let diceSides = +prompt('Введите число граней игрального кубика 4, 6 или 8:');
+
+let throwDice = size => Math.ceil( Math.random() * size );
+let logDice = () => {
+    let throwResult = throwDice( diceSides );
+    switch(throwResult) {
+        case 1 : 
+            if (diceSides === 4) console.log(D4_1);
+            else if (diceSides === 6) console.log(D6_1);
+            else console.log(D8_1);
+            break;
+        case 2 : 
+            if (diceSides === 4) console.log(D4_2);
+            else if (diceSides === 6) console.log(D6_2);
+            else console.log(D8_2);
+            break;
+        case 3 : 
+            if (diceSides === 4) console.log(D4_3);
+            else if (diceSides === 6) console.log(D6_3);
+            else console.log(D8_3);
+            break;
+        case 4 : 
+            if (diceSides === 4) console.log(D4_4);
+            else if (diceSides === 6) console.log(D6_4);
+            else console.log(D8_4);
+            break;
+        case 5 : 
+            (diceSides === 6) ? console.log(D6_5) : console.log(D8_5);
+            break;
+        case 6 : 
+            (diceSides === 6) ? console.log(D6_6) : console.log(D8_6);
+            break;
+        case 7 : console.log(D8_7); break;
+        case 8 : console.log(D8_8); break;
+    }
+}
+
+switch(diceSides) {
+    case 4 : logDice(); break;
+    case 6 : logDice(); break;
+    case 8 : logDice(); break;
+    default : alert('Введено неверное значение');
 }
